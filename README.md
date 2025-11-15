@@ -45,3 +45,36 @@ python train_iris.py
 If you want, I can:
 - Run the script here (if you want me to execute in this environment) — tell me to proceed.
 - Create a `streamlit` frontend scaffold.
+## Quick Copy/Paste Commands (PowerShell)
+
+Use these commands from the workspace root (`C:\workspace_iris`). Run the setup commands once, then run the training and frontend commands as needed.
+
+Setup (one-time):
+```powershell
+python -m venv .venv
+. .venv\Scripts\Activate.ps1
+.venv\Scripts\python.exe -m pip install -r .\requirements.txt
+```
+
+Train (when you want to retrain):
+```powershell
+.venv\Scripts\python.exe .\train_iris.py
+```
+
+Start Streamlit frontend (foreground):
+```powershell
+$env:STREAMLIT_CLIENT_EMAIL_REQUIRED='false'
+.venv\Scripts\python.exe -m streamlit run .\streamlit_app.py
+```
+
+Start Streamlit frontend (background, terminal stays free):
+```powershell
+$env:STREAMLIT_CLIENT_EMAIL_REQUIRED='false'
+Start-Process -FilePath .\.venv\Scripts\python.exe -ArgumentList '-m','streamlit','run','./streamlit_app.py'
+```
+
+Single-line (not recommended every time — avoids reinstalling deps repeatedly):
+```powershell
+.venv\Scripts\python.exe -m pip install -r requirements.txt; .venv\Scripts\python.exe train_iris.py; $env:STREAMLIT_CLIENT_EMAIL_REQUIRED='false'; .venv\Scripts\python.exe -m streamlit run streamlit_app.py
+```
+
