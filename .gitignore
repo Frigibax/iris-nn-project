@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+env/
+.venv/
+venv/
+pip-wheel-metadata/
+*.egg-info/
+
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs and outputs
+iris_nn_project/logs/
+iris_nn_project/plots/
+
+# Models & data (do not commit large binary models)
+iris_nn_project/models/
+
+# Streamlit state
+.streamlit/
+
+# Python packaging
+build/
+dist/
+
+# VS Code workspace settings
+*.code-workspace
